@@ -1,11 +1,13 @@
-
 language: node_js
 node_js:
   - v8
 
-script: echo "npm test temporarily disabled"
+cache: 'npm'
 
-before_deploy: "echo 'Before Deploy'"
+script:
+  - .\bin\run --version
+  - .\bin\run --help
+  - 'npm' run test
 
 deploy:
   provider: npm
