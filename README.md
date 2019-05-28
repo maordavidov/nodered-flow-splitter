@@ -16,11 +16,11 @@ Split \Merge node red flow file
 # Usage
 <!-- usage -->
 ```sh-session
-$ npm install -g flow_splitter
+$ npm install -g @maordavidov/flow_splitter
 $ flow_splitter COMMAND
 running command...
 $ flow_splitter (-v|--version|version)
-flow_splitter/1.0.0 win32-x64 node-v8.15.0
+@maordavidov/flow_splitter/1.0.1 win32-x64 node-v8.15.0
 $ flow_splitter --help [COMMAND]
 USAGE
   $ flow_splitter COMMAND
@@ -29,26 +29,9 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`flow_splitter hello`](#flow_splitter-hello)
 * [`flow_splitter help [COMMAND]`](#flow_splitter-help-command)
-
-## `flow_splitter hello`
-
-Describe the command here
-
-```
-USAGE
-  $ flow_splitter hello
-
-OPTIONS
-  -n, --name=name  name to print
-
-DESCRIPTION
-  ...
-  Extra documentation goes here
-```
-
-_See code: [src\commands\hello.js](https://github.com/maordavidov/flow_splitter/blob/v1.0.0/src\commands\hello.js)_
+* [`flow_splitter join`](#flow_splitter-join)
+* [`flow_splitter split`](#flow_splitter-split)
 
 ## `flow_splitter help [COMMAND]`
 
@@ -66,4 +49,40 @@ OPTIONS
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.1.6/src\commands\help.ts)_
+
+## `flow_splitter join`
+
+Provide flows.json and output folder
+
+```
+USAGE
+  $ flow_splitter join
+
+OPTIONS
+  -i, --input=input        input folder folder
+  -o, --flowFile=flowFile  flow.json file
+
+DESCRIPTION
+  ...
+```
+
+_See code: [src\commands\join.js](https://github.com/maordavidov/flow_splitter/blob/v1.0.1/src\commands\join.js)_
+
+## `flow_splitter split`
+
+Provide flows.json and output folder
+
+```
+USAGE
+  $ flow_splitter split
+
+OPTIONS
+  -f, --flowFile=flowFile  flow.json file
+  -o, --output=output      ouput folder
+
+DESCRIPTION
+  ...
+```
+
+_See code: [src\commands\split.js](https://github.com/maordavidov/flow_splitter/blob/v1.0.1/src\commands\split.js)_
 <!-- commandsstop -->

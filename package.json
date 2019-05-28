@@ -49,7 +49,7 @@
       "@oclif/plugin-help"
     ]
   },
-  "repository": "@maordavidov/flow_splitter",
+  "repository": "https://github.com/maordavidov/flow_splitter",
   "scripts": {
     "postpack": "npx rimraf oclif.manifest.json",
     "_posttest": "npx eslint .",
