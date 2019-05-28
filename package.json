@@ -51,9 +51,9 @@
   },
   "repository": "@maordavidov/flow_splitter",
   "scripts": {
-    "_postpack": "rimraf oclif.manifest.json",
+    "postpack": "rimraf oclif.manifest.json",
     "_posttest": "eslint .",
-    "_prepack": "oclif-dev manifest && oclif-dev readme",
+    "prepack": "oclif-dev manifest && oclif-dev readme",
     "test": "echo NO TESTS",
     "_version": "oclif-dev readme && git add README.md"
   }
