@@ -9,6 +9,7 @@ before_deploy:
   - "echo 'Before Deploy'"
   - npm i -g npx @oclif/dev-cli globby oclif rimraf eslint-config-oclif eslint
   - npm i
+  
 deploy:
   provider: npm
   email: "maordavidov@gmail.com"
