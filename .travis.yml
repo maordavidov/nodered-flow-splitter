@@ -5,7 +5,9 @@ node_js:
 
 script: echo "npm test temporarily disabled"
 
-before_deploy: "echo 'Before Deploy'"
+before_deploy: 
+  - "echo 'Before Deploy'"
+  - npm i -g @oclif/dev-cli rimraf
 
 deploy:
   provider: npm
