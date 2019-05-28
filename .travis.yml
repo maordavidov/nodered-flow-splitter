@@ -1,0 +1,17 @@
+
+language: node_js
+node_js:
+  - v8
+
+script: echo "npm test temporarily disabled"
+
+before_deploy: "echo 'Before Deploy'"
+
+deploy:
+  provider: npm
+  email: "maordavidov@gmail.com"
+  api_key: $NPM_TOKEN
+  on:
+    tags: false
+
+after_deploy: "echo 'After Deploy'"
