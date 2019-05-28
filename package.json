@@ -13,7 +13,8 @@
     "@oclif/plugin-help": "^2.1.6",
     "filenamify": "^4.0.0",
     "fs-extra": "^8.0.1",
-    "lodash": "^4.17.11"
+    "lodash": "^4.17.11",
+    "readdirp": "^3.0.1"
   },
   "devDependencies": {
     "@oclif/dev-cli": "^1.22.0",

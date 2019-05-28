@@ -5,9 +5,53 @@ const _ = require('lodash')
 const path = require('path')
 const fse = require('fs-extra')
 const filenamify = require('filenamify')
+const readdirp = require('readdirp')
 
 module.exports = {
   split: split,
+  join: join,
+}
+
+/**
+ *
+ * @param {string} input Input folder path
+ * @param {string} flowFile Output flow file path
+ * @returns {Promise} void promise
+ */
+async function join(input, flowFile) {
+  const files = await readdirp.promise(input, {type: 'files'})
+
+  const all = []
+
+  _.each(files, file => {
+    const p = fse.readFile(file.fullPath)
+    .then(b => b.toString())
+    .then(content => JSON.parse(content))
+    .then(obj => {
+      if (!obj.children) {
+        return [obj]
+      }
+
+      const children = obj.children
+      delete obj.children
+      const arr = [obj]
+      return arr.concat(children)
+    })
+
+    all.push(p)
+  })
+
+  const arrays = await Promise.all(all)
+
+  let joindArray = []
+
+  _.each(arrays, array => {
+    joindArray = joindArray.concat(array)
+  })
+
+  const flowContent = JSON.stringify(joindArray, null, 2)
+
+  await fse.outputFile(flowFile, flowContent)
 }
 
 /**
