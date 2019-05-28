@@ -1,19 +1,20 @@
+/* eslint-disable no-unused-vars */
 const {Command, flags} = require('@oclif/command')
 const flowUtil = require('../logic/flow-util')
 
 class SplitCommand extends Command {
   async run() {
-    const {flowFile, output} = this.parse(SplitCommand)
+    const {flags} = this.parse(SplitCommand)
 
-    if (!flowFile) {
+    if (!flags.flowFile) {
       throw new Error("'flowFile' is required parameter")
     }
 
-    if (!output) {
+    if (!flags.output) {
       throw new Error("'output' is required parameter")
     }
 
-    flowUtil.split(flowFile, output)
+    flowUtil.split(flags.flowFile, flags.output)
   }
 }
 

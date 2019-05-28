@@ -4,6 +4,7 @@ const util = require('util')
 const _ = require('lodash')
 const path = require('path')
 const fse = require('fs-extra')
+const filenamify = require('filenamify')
 
 module.exports = {
   split: split,
@@ -58,7 +59,7 @@ async function split(filePath, outputFolder) {
     const output = path.join(outputFolder, key)
 
     _.each(map[key], node => {
-      const thePath = path.join(output, `${node.name || node.label}.json`)
+      const thePath = path.join(output, filenamify(`${node.name || node.label}.json`))
 
       const promise = fse.outputFile(thePath, JSON.stringify(node, null, 2))
 
