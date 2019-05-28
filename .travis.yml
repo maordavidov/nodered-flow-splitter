@@ -7,15 +7,18 @@ script: echo "npm test temporarily disabled"
 
 before_deploy: 
   - "echo 'Before Deploy'"
-  - npm config set -g production false
-  - npm i -g npx
-  - npm i
+  
 
 deploy:
   provider: npm
   email: "maordavidov@gmail.com"
   api_key: $NPM_TOKEN
+  script:
+    - npm config set -g production false
+    - npm i -g npx
+    - npm i
   on:
+    branch: master
     tags: false
 
 after_deploy: "echo 'After Deploy'"
