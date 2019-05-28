@@ -51,9 +51,9 @@
   },
   "repository": "https://github.com/maordavidov/flow_splitter",
   "scripts": {
-    "postpack": "npx rimraf oclif.manifest.json",
+    "_postpack": "npx rimraf oclif.manifest.json",
     "_posttest": "npx eslint .",
-    "prepack": "npx oclif-dev manifest && oclif-dev readme",
+    "_prepack": "npx oclif-dev manifest && oclif-dev readme",
     "test": "echo NO TESTS",
     "version": "npx oclif-dev readme && git add README.md"
   }
