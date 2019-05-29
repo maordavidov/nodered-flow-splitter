@@ -82,7 +82,7 @@ async function split(filePath, outputFolder) {
   map.subflows = _.filter(json, node => node.type === 'subflow')
   map.subflows = _.keyBy(map.subflows, node => node.id)
   
-  map.configNodes = _.filter(json, node => !node.z);
+  map.configNodes = _.filter(json, node => !node.z && node.type !== 'tab' && node.type !== 'subflow');
   map.configNodes = _.keyBy(map.subflows, node => node.id)
 
 
