@@ -6,7 +6,8 @@ node_js:
 script: echo "npm test temporarily disabled"
 
 before_deploy: 
-  - "echo 'Before Deploy'"
+  - echo 'Before Deploy'
+  - npm ls
   # - npm i -g npx @oclif/dev-cli globby oclif rimraf eslint-config-oclif eslint
   # - npm i
   
