@@ -20,7 +20,7 @@ $ npm install -g @maordavidov/flow_splitter
 $ flow_splitter COMMAND
 running command...
 $ flow_splitter (-v|--version|version)
-@maordavidov/flow_splitter/1.0.6 win32-x64 node-v8.11.3
+@maordavidov/flow_splitter/1.0.7 win32-x64 node-v8.11.3
 $ flow_splitter --help [COMMAND]
 USAGE
   $ flow_splitter COMMAND
@@ -67,7 +67,7 @@ DESCRIPTION
   ...
 ```
 
-_See code: [src\commands\join.js](https://github.com/maordavidov/flow_splitter/blob/v1.0.6/src\commands\join.js)_
+_See code: [src\commands\join.js](https://github.com/maordavidov/flow_splitter/blob/v1.0.7/src\commands\join.js)_
 
 ## `flow_splitter split`
 
@@ -85,5 +85,5 @@ DESCRIPTION
   ...
 ```
 
-_See code: [src\commands\split.js](https://github.com/maordavidov/flow_splitter/blob/v1.0.6/src\commands\split.js)_
+_See code: [src\commands\split.js](https://github.com/maordavidov/flow_splitter/blob/v1.0.7/src\commands\split.js)_
 <!-- commandsstop -->

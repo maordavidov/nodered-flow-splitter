@@ -53,7 +53,8 @@
   "scripts": {
     "_postpack": "npx rimraf oclif.manifest.json",
     "_posttest": "npx eslint .",
-    "prepack": "npx oclif-dev manifest && npx oclif-dev readme",
+    "_prepack": "npx oclif-dev manifest && npx oclif-dev readme",
+    "gitpush": "npm run _prepack && git add oclif.manifest.json && git add README.md && git commit -m \"upload new version\" && git push",
     "test": "echo NO TESTS",
     "version": "npx oclif-dev readme && git add README.md"
   }
