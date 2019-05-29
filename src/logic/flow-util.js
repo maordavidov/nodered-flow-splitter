@@ -81,6 +81,10 @@ async function split(filePath, outputFolder) {
 
   map.subflows = _.filter(json, node => node.type === 'subflow')
   map.subflows = _.keyBy(map.subflows, node => node.id)
+  
+  map.configNodes = _.filter(json, node => !node.z);
+  map.configNodes = _.keyBy(map.subflows, node => node.id)
+
 
   const nodes = _.filter(json, node => node.z)
 
@@ -103,13 +107,15 @@ async function split(filePath, outputFolder) {
     const output = path.join(outputFolder, key)
 
     _.each(map[key], node => {
-      const thePath = path.join(output, filenamify(`${node.name || node.label}.json`))
+
+      const fileName = key === 'configNodes' ? filenamify(node.id) : filenamify(`${node.name || node.label}.json`);
+      const thePath = path.join(output, fileName)
 
       const promise = fse.outputFile(thePath, JSON.stringify(node, null, 2))
 
       arr.push(promise)
     })
   })
-
+ 
   await Promise.all(arr)
 }
