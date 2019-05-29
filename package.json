@@ -1,12 +1,12 @@
 {
   "name": "@maordavidov/flow_splitter",
   "description": "Split \\Merge node red flow file ",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "Maor Davidov",
   "bin": {
     "flow_splitter": "./bin/run"
   },
-  "publishConfig":{
+  "publishConfig": {
     "access": "public"
   },
   "bugs": "https://github.com/maordavidov/flow_splitter/issues",
