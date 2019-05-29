@@ -1,7 +1,7 @@
 {
   "name": "@maordavidov/flow_splitter",
   "description": "Split \\Merge node red flow file ",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "author": "Maor Davidov",
   "bin": {
     "flow_splitter": "./bin/run"
@@ -53,7 +53,7 @@
   "scripts": {
     "_postpack": "npx rimraf oclif.manifest.json",
     "_posttest": "npx eslint .",
-    "_prepack": "npx oclif-dev manifest && oclif-dev readme",
+    "prepack": "npx oclif-dev manifest && oclif-dev readme",
     "test": "echo NO TESTS",
     "version": "npx oclif-dev readme && git add README.md"
   }

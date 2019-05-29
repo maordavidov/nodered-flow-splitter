@@ -14,7 +14,7 @@ class SplitCommand extends Command {
       throw new Error("'output' is required parameter")
     }
 
-    flowUtil.split(flags.flowFile, flags.output)
+    flowUtil.splitToFolder(flags.flowFile, flags.output)
   }
 }
 

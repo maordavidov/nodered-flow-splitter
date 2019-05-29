@@ -14,7 +14,7 @@ class JoinCommand extends Command {
       throw new Error("'flowFile' is required parameter")
     }
 
-    flowUtil.join(flags.input, flags.flowFile, flags.tab)
+    flowUtil.joinToFile(flags.input, flags.flowFile, flags.tab)
   }
 }
 
