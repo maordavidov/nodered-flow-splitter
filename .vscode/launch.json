@@ -9,7 +9,7 @@
             "request": "launch",
             "name": "Launch Program",
             "program": "${workspaceFolder}\\bin\\run",
-            "args": ["join", "--flowFile=C:\\engage\\nodered\\flow.json", "--input=C:\\engage\\nodered\\flow_files"]
+            "args": ["join","-t", "MQTT Events", "--flowFile=C:\\engage\\nodered\\flow.json", "--input=C:\\engage\\nodered\\flow_files"]
         }
     ]
 }

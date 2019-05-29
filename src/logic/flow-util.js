@@ -16,14 +16,21 @@ module.exports = {
  *
  * @param {string} input Input folder path
  * @param {string} flowFile Output flow file path
+ * @param {string[]} tabsToJoin join specific tabs
  * @returns {Promise} void promise
  */
-async function join(input, flowFile) {
+async function join(input, flowFile, tabsToJoin) {
   const files = await readdirp.promise(input, {type: 'files'})
 
   const all = []
 
   _.each(files, file => {
+    const parsedFile = path.parse(file.path)
+
+    if (tabsToJoin && parsedFile.dir === 'tabs' && _.includes(tabsToJoin, parsedFile.name) === false) {
+      return
+    }
+
     const p = fse.readFile(file.fullPath)
     .then(b => b.toString())
     .then(content => JSON.parse(content))
@@ -81,10 +88,9 @@ async function split(filePath, outputFolder) {
 
   map.subflows = _.filter(json, node => node.type === 'subflow')
   map.subflows = _.keyBy(map.subflows, node => node.id)
-  
-  map.configNodes = _.filter(json, node => !node.z && node.type !== 'tab' && node.type !== 'subflow');
-  map.configNodes = _.keyBy(map.configNodes, node => node.id)
 
+  map.configNodes = _.filter(json, node => !node.z && node.type !== 'tab' && node.type !== 'subflow')
+  map.configNodes = _.keyBy(map.configNodes, node => node.id)
 
   const nodes = _.filter(json, node => node.z)
 
@@ -107,8 +113,7 @@ async function split(filePath, outputFolder) {
     const output = path.join(outputFolder, key)
 
     _.each(map[key], node => {
-
-      const fileName = key === 'configNodes' ? filenamify(node.id) : filenamify(`${node.name || node.label}.json`);
+      const fileName = key === 'configNodes' ? filenamify(node.id) : filenamify(`${node.name || node.label}.json`)
       const thePath = path.join(output, fileName)
 
       const promise = fse.outputFile(thePath, JSON.stringify(node, null, 2))
@@ -116,6 +121,6 @@ async function split(filePath, outputFolder) {
       arr.push(promise)
     })
   })
- 
+
   await Promise.all(arr)
 }

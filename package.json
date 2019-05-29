@@ -1,7 +1,7 @@
 {
   "name": "@maordavidov/flow_splitter",
   "description": "Split \\Merge node red flow file ",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "author": "Maor Davidov",
   "bin": {
     "flow_splitter": "./bin/run"

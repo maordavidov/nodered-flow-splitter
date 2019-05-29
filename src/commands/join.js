@@ -14,7 +14,7 @@ class JoinCommand extends Command {
       throw new Error("'flowFile' is required parameter")
     }
 
-    flowUtil.join(flags.input, flags.flowFile)
+    flowUtil.join(flags.input, flags.flowFile, flags.tab)
   }
 }
 
@@ -26,6 +26,7 @@ JoinCommand.description = `Provide flows.json and output folder
 JoinCommand.flags = {
   input: flags.string({char: 'i', description: 'input folder folder'}),
   flowFile: flags.string({char: 'o', description: 'flow.json file'}),
+  tab: flags.string({char: 't', description: 'join flow from specific tabs', multiple: true}),
 }
 
 module.exports = JoinCommand
